@@ -1,0 +1,29 @@
+.page-banner {
+  padding: 80px 0 40px 0;
+  position: relative;
+}
+.page-banner__bg-image {
+  opacity: 0.33;
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.container {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 16px;
+  position: relative;
+}
+
+.page-banner__content {
+  position: relative;
+  z-index: 2;
+}
+
+.t-center {
+  text-align: center;
+}
