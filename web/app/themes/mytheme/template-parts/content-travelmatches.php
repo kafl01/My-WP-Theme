@@ -61,7 +61,7 @@
             <svg class="rounded-circle bg-primary p-3 mb-4" width="100" height="100"></svg>
             <h3>Boka</h3>
             <p class="pe-4"><?php echo get_post_meta($post->ID, 'olka_express_text_i_knapp', true); ?></p>
-            <button class="pe-4 btn-primary">Boka<a href=#></a></button>
+            <a href=# class="btn btn-primary mb-3">Boka</a>
         </div><!-- /.col-lg-4 -->
     </div><!-- /.row -->
     <hr class="featurette-divider bg-primary">

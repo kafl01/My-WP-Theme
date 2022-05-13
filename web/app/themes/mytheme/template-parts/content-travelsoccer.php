@@ -56,7 +56,7 @@
             <svg class="rounded-circle bg-primary p-3 mb-4" width="100" height="100"></svg>
             <h3>Om resan</h3>
             <p class="pe-4"><?php echo get_post_meta($post->ID, 'tagline', true); ?></p>
-            <button class="pe-4 btn-primary"><a href=#>Boka</a></button>
+            <a href=# class="btn btn-primary mb-3">Boka</a>
         </div><!-- /.col-lg-4 -->
         <hr class="featurette-divider bg-primary">
 

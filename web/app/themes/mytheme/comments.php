@@ -16,8 +16,10 @@
         <?php
         wp_list_comments(
             array(
-                'avatar_size' => 120,
-                'style' => 'div',
+                'style'       => 'div',
+                'short_ping'  => true,
+                'avatar_size' => 74,
+                'reverse_top_level' => 'true',
             )
         );
         ?>
