@@ -3,7 +3,6 @@
   position: relative;
 }
 .page-banner__bg-image {
-  opacity: 0.33;
   background-size: cover;
   position: absolute;
   top: 0;
@@ -26,4 +25,8 @@
 
 .t-center {
   text-align: center;
+}
+
+#textcol {
+  color: #fcffe7;
 }

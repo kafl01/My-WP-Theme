@@ -1,3 +1,4 @@
+<?php get_header(); ?>
 <main class="content">
     <?php
     if (have_posts()) :
@@ -9,3 +10,4 @@
     endif;
     ?>
 </main>
+<?php get_footer(); ?>

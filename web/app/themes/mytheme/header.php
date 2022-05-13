@@ -11,8 +11,8 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
+    <nav class="navbar navbar-expand-lg navbar-light bg-green">
+        <div class="container-fluid" id="col-resp">
             <div class="logo">
                 <a class="navbar-brand" href="#">
                     <?php
@@ -35,7 +35,7 @@
                 ); ?>
             </div>
             <div>
-                <button class="btn btn-primary">Call to Action</button>
+                <a href="<?php echo get_permalink(1329); ?>" class="btn btn-primary mb-3">Kontakta oss</a>
             </div>
         </div>
     </nav>

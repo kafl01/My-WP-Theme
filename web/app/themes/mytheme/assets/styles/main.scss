@@ -1,6 +1,10 @@
-$primary: #fdba74;
+$body-bg: #fcffe7;
+$primary: #dea057;
+$body-color: #4c4c6d;
+$light: #ce9461;
 @import "~bootstrap/scss/bootstrap";
 @import "./header";
 @import "./footer";
 @import "./topbanner";
-@import "./content";
+@import "./content.scss";
+@import "./carousel";

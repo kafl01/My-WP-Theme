@@ -1,5 +1,5 @@
 .main-nav > ul > li > a {
-  color: #57534e;
+  color: #4c4c6d;
   text-decoration: none;
 }
 
@@ -9,5 +9,15 @@
 }
 
 .main-nav > ul > li > a:hover {
-  color: #fdba74;
+  color: $primary;
+}
+
+.bg-green {
+  background-color: #e0d8b0;
+}
+
+@media screen and (max-width: 767px) {
+  #col-resp {
+    flex-direction: column;
+  }
 }

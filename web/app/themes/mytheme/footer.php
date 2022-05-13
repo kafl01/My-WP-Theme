@@ -6,7 +6,7 @@
             <div class="row align-items-start">
                 <div class="col-md-6 px-2">
                     <div class="main-nav">
-                        <h3>Mockup Company</h3>
+                        <h3>Sport R Us</h3>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor corrupti incidunt accusamus voluptas commodi nostrum.</p>
                         <?php wp_nav_menu(
                             array(

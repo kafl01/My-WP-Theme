@@ -9,21 +9,22 @@ function setup_mytheme()
     add_theme_support('html5', ['search-form', 'comment-form', 'comment-list', 'gallery', 'caption']);
     add_theme_support(feature: 'title-tag');
     add_theme_support(feature: 'responsive-embeds');
-    //cretae our menu locations
+    //create our menu locations
     register_nav_menus(
         [
             'primary' => __('Main navigation', 'mytheme'),
             'extra-menu' => __('Extra Menu', 'mytheme'),
             'footer'  => __('Footer navigation', 'mytheme'),
             'social' => __('Social Media Links', 'mytheme'),
+            'secondary-menu' => __('Secondary Menu', 'mytheme'),
         ]
     );
 
-    //possible add image size
-
+    load_theme_textdomain('mytheme', get_template_directory() . '/languages');
 }
 add_action('after_setup_theme', 'setup_mytheme');
 
+// Styles
 function mytheme_styles()
 {
     wp_enqueue_style('font-awesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
@@ -31,6 +32,17 @@ function mytheme_styles()
     wp_enqueue_style('mytheme-style', get_theme_file_uri('dist/main.css'));
 }
 add_action('wp_enqueue_scripts', 'mytheme_styles');
+
+// Script
+function mytheme_scripts()
+{
+    wp_enqueue_script('jquery');
+    wp_enqueue_script('mytheme-script', get_theme_file_uri('dist/app.js'), [], null, true);
+}
+
+add_action('wp_enqueue_scripts', 'mytheme_scripts');
+
+// ---------- //
 
 // For CPT WCM-travel
 function my_custom_post_wcmtravel()
@@ -40,11 +52,12 @@ function my_custom_post_wcmtravel()
             'name' => 'wcm_travel',
             'singular_name' => 'wcm_travel',
         ),
-        'hierarchical' => false,
+        'hierarchical' => true,
         'public' => true,
         'has_archive' => true,
-        'rewrite'     => ['slug' => 'wcm_trips'],
-        'supports' => array('title', 'editor', 'thumbnail'),
+        'rewrite'     => ['slug' => 'wcm_travel'],
+        'supports' => array('title', 'editor', 'thumbnail', 'custom-fields'),
+        'show_in_nav_menus' => 'true',
     );
 
     register_post_type('wcm_travel', $args);
@@ -59,11 +72,11 @@ function my_custom_post_travelmatches()
             'name' => 'travel_matches',
             'singular_name' => 'travel_match',
         ),
-        'hierarchical' => false,
+        'hierarchical' => true,
         'public' => true,
         'has_archive' => true,
         'rewrite'     => ['slug' => 'travel_matches'],
-        'supports' => array('title', 'editor', 'thumbnail'),
+        'supports' => array('title', 'editor', 'thumbnail', 'custom-fields'),
     );
 
     register_post_type('travel_matches', $args);
@@ -78,11 +91,11 @@ function my_custom_post_travelcup()
             'name' => 'travel_cup',
             'singular_name' => 'travel_cup',
         ),
-        'hierarchical' => false,
+        'hierarchical' => true,
         'public' => true,
         'has_archive' => true,
         'rewrite'     => ['slug' => 'travel_cup'],
-        'supports' => array('title', 'editor', 'thumbnail'),
+        'supports' => array('title', 'editor', 'thumbnail', 'custom-fields'),
     );
 
     register_post_type('travel_cup', $args);
@@ -97,11 +110,11 @@ function my_custom_post_travelcamp()
             'name' => 'travel_camp',
             'singular_name' => 'travel_camp',
         ),
-        'hierarchical' => false,
+        'hierarchical' => true,
         'public' => true,
         'has_archive' => true,
         'rewrite'     => ['slug' => 'travel_camp'],
-        'supports' => array('title', 'editor', 'thumbnail'),
+        'supports' => array('title', 'editor', 'thumbnail', 'custom-fields'),
     );
 
     register_post_type('travel_camp', $args);
@@ -116,16 +129,35 @@ function my_custom_post_travelsoccer()
             'name' => 'travel_soccer',
             'singular_name' => 'travel_soccer',
         ),
-        'hierarchical' => false,
+        'hierarchical' => true,
         'public' => true,
         'has_archive' => true,
         'rewrite'     => ['slug' => 'travel_soccer'],
-        'supports' => array('title', 'editor', 'thumbnail'),
+        'supports' => array('title', 'editor', 'thumbnail', 'custom-fields'),
     );
 
     register_post_type('travel_soccer', $args);
 }
 add_action('init', 'my_custom_post_travelsoccer');
+
+// For CPT Netr Team
+function my_custom_post_netrteam()
+{
+    $args = array(
+        'labels' => array(
+            'name' => 'netr_team',
+            'singular_name' => 'netr_team',
+        ),
+        'hierarchical' => true,
+        'public' => true,
+        'has_archive' => true,
+        'rewrite'     => ['slug' => 'netr_team'],
+        'supports' => array('title', 'editor', 'thumbnail', 'custom-fields'),
+    );
+
+    register_post_type('netr_team', $args);
+}
+add_action('init', 'my_custom_post_netrteam');
 
 // ---------- //
 
@@ -135,7 +167,7 @@ function my_taxon_travelage()
     $args = array(
         'labels' => array(
             'name' => 'travel_age',
-            'singualar_name' => 'travel_age',
+            'singular_name' => 'travel_age',
         ),
         'public' => true,
         'hierarchical' => true,
@@ -150,7 +182,7 @@ function my_taxon_travelcountry()
     $args = array(
         'labels' => array(
             'name' => 'travel_country',
-            'singualar_name' => 'travel_country',
+            'singular_name' => 'travel_country',
         ),
         'public' => true,
         'hierarchical' => true,
@@ -164,13 +196,13 @@ function my_taxon_sportleague()
 {
     $args = array(
         'labels' => array(
-            'name' => 'sport_league',
-            'singualar_name' => 'sport_league',
+            'name' => 'travel_sport_league',
+            'singular_name' => 'travel_sport_league',
         ),
         'public' => true,
         'hierarchical' => true,
     );
-    register_taxonomy('sport_league', array('wcm_travel', 'travel_soccer', 'travel_matches', 'page'), $args);
+    register_taxonomy('travel_sport_league', array('wcm_travel', 'travel_soccer', 'travel_matches', 'page'), $args);
 }
 add_action('init', 'my_taxon_sportleague');
 
@@ -179,13 +211,13 @@ function my_taxon_sporttype()
 {
     $args = array(
         'labels' => array(
-            'name' => 'sport_type',
-            'singualar_name' => 'sport_type',
+            'name' => 'travel_sport_type',
+            'singular_name' => 'travel_sport_type',
         ),
         'public' => true,
         'hierarchical' => true,
     );
-    register_taxonomy('sport_type', array('wcm_travel', 'travel_camp', 'travel_cup', 'travel_soccer', 'page'), $args);
+    register_taxonomy('travel_sport_type', array('wcm_travel', 'travel_camp', 'travel_cup', 'travel_soccer', 'page'), $args);
 }
 add_action('init', 'my_taxon_sporttype');
 
@@ -195,7 +227,7 @@ function my_taxon_traveltype()
     $args = array(
         'labels' => array(
             'name' => 'travel_type',
-            'singualar_name' => 'travel_type',
+            'singular_name' => 'travel_type',
         ),
         'public' => true,
         'hierarchical' => true,
@@ -204,6 +236,9 @@ function my_taxon_traveltype()
 }
 add_action('init', 'my_taxon_traveltype');
 
+// ---------- // 
+
+// widget
 function mytheme_widgets()
 {
     register_sidebar(
