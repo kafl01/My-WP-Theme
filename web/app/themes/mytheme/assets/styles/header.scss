@@ -1,5 +1,5 @@
 .main-nav > ul > li > a {
-  color: #4c4c6d;
+  color: $body-color;
   text-decoration: none;
 }
 
@@ -12,23 +12,8 @@
   color: $primary;
 }
 
-.bg-green {
+.bg-topnav {
   background-color: #e0d8b0;
-}
-
-h6,
-.h6,
-h5,
-.h5,
-h4,
-.h4,
-h3,
-.h3,
-h2,
-.h2,
-h1,
-.h1 {
-  font-family: "Indie Flower", cursive;
 }
 
 @media screen and (max-width: 767px) {

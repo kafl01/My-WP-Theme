@@ -1,6 +1,6 @@
 .comment-body {
   margin: 20px;
-  border-bottom: 1px solid #dea057;
+  border-bottom: 1px solid $primary;
 }
 
 .comment-content {
@@ -13,7 +13,7 @@
 
 #submit {
   color: #000;
-  background-color: #dea057;
-  border-color: #dea057;
+  background-color: $primary;
+  border-color: $primary;
   border-radius: 0.25rem;
 }

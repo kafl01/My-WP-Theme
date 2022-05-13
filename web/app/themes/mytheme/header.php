@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-green">
+    <nav class="navbar navbar-expand-lg navbar-light bg-topnav">
         <div class="container-fluid" id="col-resp">
             <div class="logo">
                 <a class="navbar-brand" href="#">
