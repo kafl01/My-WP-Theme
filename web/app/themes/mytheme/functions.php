@@ -63,7 +63,7 @@ function my_custom_post_wcmtravel()
 
     register_post_type('wcm_travel', $args);
 }
-add_action('init', 'my_custom_post_wcmtravel');
+// add_action('init', 'my_custom_post_wcmtravel');
 
 // For CPT Travel Matches
 function my_custom_post_travelmatches()
@@ -82,7 +82,7 @@ function my_custom_post_travelmatches()
 
     register_post_type('travel_matches', $args);
 }
-add_action('init', 'my_custom_post_travelmatches');
+// add_action('init', 'my_custom_post_travelmatches');
 
 // For CPT Travel cup
 function my_custom_post_travelcup()
@@ -101,7 +101,7 @@ function my_custom_post_travelcup()
 
     register_post_type('travel_cup', $args);
 }
-add_action('init', 'my_custom_post_travelcup');
+// add_action('init', 'my_custom_post_travelcup');
 
 // For CPT Travel camp
 function my_custom_post_travelcamp()
@@ -120,7 +120,7 @@ function my_custom_post_travelcamp()
 
     register_post_type('travel_camp', $args);
 }
-add_action('init', 'my_custom_post_travelcamp');
+// add_action('init', 'my_custom_post_travelcamp');
 
 // For CPT Travel camp
 function my_custom_post_travelsoccer()
@@ -139,7 +139,7 @@ function my_custom_post_travelsoccer()
 
     register_post_type('travel_soccer', $args);
 }
-add_action('init', 'my_custom_post_travelsoccer');
+// add_action('init', 'my_custom_post_travelsoccer');
 
 // For CPT Netr Team
 function my_custom_post_netrteam()
@@ -158,7 +158,7 @@ function my_custom_post_netrteam()
 
     register_post_type('netr_team', $args);
 }
-add_action('init', 'my_custom_post_netrteam');
+// add_action('init', 'my_custom_post_netrteam');
 
 // ---------- //
 
